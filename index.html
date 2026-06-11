@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BEDBUG | VW Beetle Camper</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f3ed;
+      color: #222;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      letter-spacing: 3px;
+      color: #d7a84f;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: bold;
+    }
+
+    .hero {
+      min-height: 85vh;
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("bedbug.jpg");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 0 60px;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .hero h2 {
+      font-size: 64px;
+      margin-bottom: 10px;
+      color: #d7a84f;
+    }
+
+    .hero p {
+      font-size: 22px;
+      line-height: 1.5;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 28px;
+      background: #d7a84f;
+      color: #111;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+    }
+
+    section {
+      padding: 70px 60px;
+    }
+
+    .about {
+      background: white;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      max-width: 850px;
+      margin: auto;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      background: #f7f3ed;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .feature-card h3 {
+      color: #d7a84f;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        margin-top: 15px;
+      }
+
+      .hero {
+        padding: 0 30px;
+      }
+
+      .hero h2 {
+        font-size: 44px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>BEDBUG</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>Meet BEDBUG</h2>
+      <p>
+        A one-of-a-kind VW Beetle camper built for weekend escapes,
+        coastal road trips, coffee stops, and unforgettable adventures.
+      </p>
+      <a href="#about" class="button">Explore the Build</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>About BEDBUG</h2>
+    <p>
+      BEDBUG is more than just a VW Beetle — it is a passion project,
+      a road trip companion, and a tiny camper with a huge personality.
+      Built with character, style, and adventure in mind, BEDBUG was created
+      to showcase the freedom of simple travel, scenic drives, campground
+      mornings, and coffee out the back under the open sky.
+    </p>
+  </section>
+
+  <section class="features">
+    <div class="feature-card">
+      <h3>Classic VW Style</h3>
+      <p>Retro Beetle charm with a unique camper twist.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Rear Kitchen</h3>
+      <p>Perfect for coffee, breakfast dates, and campsite cooking.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Weekend Ready</h3>
+      <p>Designed for short getaways, coastal trips, and hinterland escapes.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Built With Love</h3>
+      <p>A custom build made to turn heads wherever it goes.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 BEDBUG VW Beetle Camper | Built for adventure</p>
+  </footer>
+
+</body>
+</html>
