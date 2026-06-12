@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About BEDBUG</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff8ec;
+      color: #173b3f;
+    }
+
+    header {
+      background: #7ed6d1;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid #f4c46b;
+    }
+
+    .logo {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: 5px;
+      color: #173b3f;
+    }
+
+    nav a {
+      color: #173b3f;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 75px 7%;
+    }
+
+    .hero {
+      background:
+        linear-gradient(rgba(255,248,236,0.15), rgba(255,248,236,0.9)),
+        url("0F99881F-AD0A-4767-8569-EA58DF836F8B.png");
+      background-size: cover;
+      background-position: center;
+      min-height: 75vh;
+      display: flex;
+      align-items: end;
+    }
+
+    .hero-box {
+      background: rgba(255,248,236,0.94);
+      padding: 35px;
+      border-radius: 28px;
+      border: 4px solid #f4c46b;
+      max-width: 800px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 10vw, 110px);
+      margin: 0;
+      color: #00a6a6;
+    }
+
+    h2 {
+      color: #00a6a6;
+      font-size: 40px;
+    }
+
+    p, li {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 25px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 24px;
+      border: 3px solid #b9eee9;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      background: #7ed6d1;
+      text-align: center;
+      padding: 30px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">BEDBUG</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About BEDBUG</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-box">
+    <h1>About BEDBUG</h1>
+    <p>
+      From an old rundown VW Beetle to a one-of-a-kind retro camper,
+      BEDBUG was built to bring classic style and weekend adventure together.
+    </p>
+  </div>
+</section>
+
+<section class="split">
+  <div>
+    <h2>The Build</h2>
+    <p>
+      BEDBUG started life as an old rundown VW Beetle before being transformed
+      into a custom camper with a completely unique personality.
+    </p>
+    <p>
+      The build blends vintage VW charm with modern upgrades, making it more
+      reliable, more capable and far more comfortable for weekend escapes.
+    </p>
+  </div>
+
+  <img src="0F99881F-AD0A-4767-8569-EA58DF836F8B.png" alt="BEDBUG build start">
+</section>
+
+<section>
+  <div class="box">
+    <h2>Modern Mechanical Updates</h2>
+    <ul>
+      <li>Subaru 2.0L boxer engine conversion</li>
+      <li>Upgraded performance brakes</li>
+      <li>Coil-over rear suspension</li>
+      <li>Classic VW styling with improved drivability</li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>Camper Setup</h2>
+    <ul>
+      <li>Spacious double bed</li>
+      <li>Plenty of luggage storage</li>
+      <li>Reading lights</li>
+      <li>Rear kitchen setup</li>
+      <li>Microwave</li>
+      <li>Coffee machine</li>
+      <li>Sink with running water</li>
+      <li>65L fridge</li>
+    </ul>
+  </div>
+</section>
+
+<section class="split">
+  <img src="IMG_5697.png" alt="BEDBUG rear kitchen">
+
+  <div>
+    <h2>Rear Kitchen Living</h2>
+    <p>
+      The rear kitchen is built for real weekend use. Open it up, make a coffee,
+      grab breakfast, wash up with running water and keep everything cold in the
+      65L fridge.
+    </p>
+    <p>
+      It turns every stop into a proper little camp setup.
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2026 BEDBUG VW Beetle Camper
+</footer>
+
+</body>
+</html>
