@@ -10,66 +10,272 @@
 <body>
 
 <header>
-  <div class="logo">BEDBUG</div>
+  <a class="logo" href="index.html">
+    <img src="959421AA-AA5B-49F4-86D9-44BDBCBD879C.png" alt="BEDBUG Logo">
+  </a>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="booking.html">Book</a>
-    <a href="payment.html">Payment</a>
+    <a href="journal.html">Journal</a>
+    <a href="booking.html" class="book-btn">Book</a>
   </nav>
 </header>
 
+<section class="hero" style="background-image:url('IMG_5713.png'); min-height:70vh;">
+  <div class="hero-content">
+    <h1>Book BEDBUG</h1>
+    <p>Choose your dates, check your estimate and start planning your retro getaway.</p>
+  </div>
+</section>
+
 <section>
-  <h1>Book Your Adventure</h1>
-
   <div class="grid">
-    <div class="card">
-      <img src="IMG_5713.png" alt="BEDBUG beach adventure">
-      <h3>Start Your Road Trip</h3>
-      <p>Pick your dates, pack your bags and create your own BEDBUG getaway.</p>
-    </div>
-
     <div class="box">
       <h2>Hire Rates</h2>
-      <p><strong>Monday – Thursday</strong><br>$550 per night</p>
-      <p><strong>Friday – Sunday</strong><br>$795 per night</p>
-      <p><strong>Pick Up:</strong> 1:00pm</p>
-      <p><strong>Return:</strong> 10:30am</p>
+      <p><strong>Monday – Thursday</strong></p>
+      <p class="price">$550/night</p>
+
+      <p><strong>Friday – Sunday</strong></p>
+      <p class="price">$795/night</p>
+
+      <p><strong>Pick-up:</strong> 1:00pm on booking day</p>
+      <p><strong>Return:</strong> 10:30am on return day</p>
+    </div>
+
+    <div class="card">
+      <img src="IMG_5714.png" alt="BEDBUG camping adventure">
+      <h3>Your Adventure Starts Here</h3>
+      <p>
+        Select your pick-up and return dates below. Booked dates are blocked out.
+      </p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="box">
-    <h2>Booking Request</h2>
+    <h2>Availability Calendar</h2>
+    <p>
+      Click your pick-up date first, then your return date. Your selected range
+      and estimated hire cost will update automatically.
+    </p>
 
-    <form action="payment.html">
-      <label>Full Name</label>
-      <input type="text" placeholder="Your full name">
+    <div class="calendar-controls">
+      <button type="button" onclick="previousMonth()">← Previous</button>
+      <h3 id="monthYear"></h3>
+      <button type="button" onclick="nextMonth()">Next →</button>
+    </div>
 
-      <label>Email</label>
-      <input type="email" placeholder="Your email address">
+    <div class="calendar" id="calendar"></div>
 
-      <label>Phone</label>
-      <input type="text" placeholder="Your phone number">
-
-      <label>Pick-up Date</label>
-      <input type="date">
-
-      <label>Return Date</label>
-      <input type="date">
-
-      <label>Destination / Trip Plans</label>
-      <textarea rows="5" placeholder="Tell us where you want to take BEDBUG"></textarea>
-
-      <button type="submit">Continue To Payment</button>
-    </form>
+    <p>
+      <strong>Tip:</strong> To block out confirmed bookings later, edit the
+      <code>bookedDates</code> list near the bottom of this file.
+    </p>
   </div>
 </section>
 
+<section>
+  <div class="grid">
+    <div class="box">
+      <h2>Your Booking Estimate</h2>
+
+      <p><strong>Pick-up Date:</strong> <span id="pickupText">Not selected</span></p>
+      <p><strong>Return Date:</strong> <span id="returnText">Not selected</span></p>
+      <p><strong>Total Nights:</strong> <span id="nightsText">0</span></p>
+      <p><strong>Estimated Total:</strong> <span id="totalText">$0</span></p>
+
+      <p>
+        Weeknights are calculated at $550/night and Friday, Saturday and Sunday
+        nights are calculated at $795/night.
+      </p>
+    </div>
+
+    <div class="box">
+      <h2>Booking Request</h2>
+
+      <form action="payment.html">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your full name" required>
+
+        <label>Email</label>
+        <input type="email" placeholder="Your email address" required>
+
+        <label>Phone</label>
+        <input type="text" placeholder="Your phone number" required>
+
+        <label>Destination / Trip Plans</label>
+        <textarea rows="5" placeholder="Tell us where you want to take BEDBUG"></textarea>
+
+        <button type="submit">Continue To Payment</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="dark-section center">
+  <h2>Manual Booking System</h2>
+  <p>
+    This is a no-cost booking setup. Confirm bookings manually, then add the dates
+    into the booked dates list in this file so they show as unavailable.
+  </p>
+</section>
+
 <footer>
-  Adventure Starts Here
+  <p>BEDBUG • Retro Camper Adventures • Book Your Own Escape</p>
 </footer>
+
+<script>
+  const bookedDates = [
+    "2026-07-05",
+    "2026-07-06",
+    "2026-07-07"
+  ];
+
+  let currentDate = new Date();
+  let pickupDate = null;
+  let returnDate = null;
+
+  const calendar = document.getElementById("calendar");
+  const monthYear = document.getElementById("monthYear");
+
+  function renderCalendar() {
+    calendar.innerHTML = "";
+
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+
+    monthYear.innerText = firstDay.toLocaleDateString("en-AU", {
+      month: "long",
+      year: "numeric"
+    });
+
+    const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+    days.forEach(day => {
+      const dayName = document.createElement("div");
+      dayName.className = "calendar-day-name";
+      dayName.innerText = day;
+      calendar.appendChild(dayName);
+    });
+
+    let startDay = firstDay.getDay();
+    startDay = startDay === 0 ? 6 : startDay - 1;
+
+    for (let i = 0; i < startDay; i++) {
+      const empty = document.createElement("div");
+      empty.className = "calendar-empty";
+      calendar.appendChild(empty);
+    }
+
+    for (let day = 1; day <= lastDay.getDate(); day++) {
+      const dateObj = new Date(year, month, day);
+      const dateString = formatDate(dateObj);
+
+      const dayBox = document.createElement("button");
+      dayBox.type = "button";
+      dayBox.className = "calendar-day";
+      dayBox.innerText = day;
+
+      if (bookedDates.includes(dateString)) {
+        dayBox.classList.add("booked");
+        dayBox.disabled = true;
+      }
+
+      if (isSelected(dateObj)) {
+        dayBox.classList.add("selected");
+      }
+
+      dayBox.onclick = () => selectDate(dateObj);
+
+      calendar.appendChild(dayBox);
+    }
+  }
+
+  function selectDate(dateObj) {
+    if (!pickupDate || returnDate) {
+      pickupDate = dateObj;
+      returnDate = null;
+    } else if (dateObj > pickupDate) {
+      returnDate = dateObj;
+    } else {
+      pickupDate = dateObj;
+      returnDate = null;
+    }
+
+    updateEstimate();
+    renderCalendar();
+  }
+
+  function isSelected(dateObj) {
+    if (!pickupDate) return false;
+
+    if (pickupDate && !returnDate) {
+      return formatDate(dateObj) === formatDate(pickupDate);
+    }
+
+    return dateObj >= pickupDate && dateObj <= returnDate;
+  }
+
+  function updateEstimate() {
+    document.getElementById("pickupText").innerText = pickupDate
+      ? pickupDate.toLocaleDateString("en-AU")
+      : "Not selected";
+
+    document.getElementById("returnText").innerText = returnDate
+      ? returnDate.toLocaleDateString("en-AU")
+      : "Not selected";
+
+    if (!pickupDate || !returnDate) {
+      document.getElementById("nightsText").innerText = "0";
+      document.getElementById("totalText").innerText = "$0";
+      return;
+    }
+
+    let total = 0;
+    let nights = 0;
+    let date = new Date(pickupDate);
+
+    while (date < returnDate) {
+      const day = date.getDay();
+
+      if (day >= 1 && day <= 4) {
+        total += 550;
+      } else {
+        total += 795;
+      }
+
+      nights++;
+      date.setDate(date.getDate() + 1);
+    }
+
+    document.getElementById("nightsText").innerText = nights;
+    document.getElementById("totalText").innerText = "$" + total.toLocaleString();
+  }
+
+  function previousMonth() {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
+  }
+
+  function nextMonth() {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
+  }
+
+  function formatDate(dateObj) {
+    const year = dateObj.getFullYear();
+    const month = String(dateObj.getMonth() + 1).padStart(2, "0");
+    const day = String(dateObj.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  }
+
+  renderCalendar();
+</script>
 
 </body>
 </html>
