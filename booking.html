@@ -6,296 +6,404 @@
 
 <title>Book BEDBUG</title>
 
-<link rel="stylesheet" href="style.css?v=50">
+<link rel="stylesheet" href="style.css?v=101">
 
 <style>
-
-.booking-hero{
-    padding:80px 8%;
-    text-align:center;
-    background:#0f4f4d;
-    color:white;
+.booking-hero {
+  padding: 90px 8%;
+  text-align: center;
+  background: var(--teal);
+  color: white;
 }
 
-.booking-hero h1{
-    font-size:4rem;
-    margin-bottom:15px;
+.booking-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 7%;
 }
 
-.booking-wrapper{
-    max-width:1200px;
-    margin:auto;
-    padding:60px 8%;
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
 }
 
-.booking-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
+.booking-card {
+  background: var(--white);
+  color: var(--teal);
+  border-radius: 26px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+  border: 3px solid rgba(126, 214, 207, 0.5);
 }
 
-.booking-card{
-    background:white;
-    border-radius:20px;
-    padding:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+.price-box {
+  background: var(--cream);
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 18px;
 }
 
-.booking-card h2{
-    margin-bottom:20px;
+.price-box h3 {
+  color: var(--orange);
 }
 
-.price-box{
-    background:#f7f3e9;
-    padding:25px;
-    border-radius:16px;
-    margin-bottom:20px;
+.calendar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 20px 0;
 }
 
-.price-box h3{
-    color:#cf6c2d;
+.calendar-top button {
+  width: auto;
 }
 
-.calendar-grid{
-    display:grid;
-    grid-template-columns:repeat(7,1fr);
-    gap:8px;
-    margin-top:20px;
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 7px;
 }
 
-.day-name{
-    text-align:center;
-    font-weight:bold;
+.day-name {
+  text-align: center;
+  font-weight: 900;
+  font-size: 14px;
+  color: var(--teal);
 }
 
-.day{
-    background:#cf6c2d;
-    color:white;
-    text-align:center;
-    padding:12px;
-    border-radius:10px;
+.calendar-day,
+.empty-day {
+  min-height: 48px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
 }
 
-.day.available{
-    background:#cf6c2d;
+.calendar-day {
+  background: var(--white);
+  color: var(--teal);
+  border: 2px solid var(--aqua);
+  cursor: pointer;
 }
 
-.day.booked{
-    background:#999;
+.calendar-day:hover {
+  background: var(--sand);
 }
 
-.legend{
-    display:flex;
-    gap:15px;
-    margin-top:20px;
+.calendar-day.selected {
+  background: var(--orange);
+  color: white;
+  border-color: var(--orange);
 }
 
-.legend span{
-    display:flex;
-    align-items:center;
-    gap:8px;
+.calendar-day.in-range {
+  background: var(--sand);
+  border-color: var(--orange);
 }
 
-.dot{
-    width:15px;
-    height:15px;
-    border-radius:50%;
+.calendar-day.booked {
+  background: #888;
+  color: #eee;
+  border-color: #888;
+  cursor: not-allowed;
+  text-decoration: line-through;
 }
 
-.available-dot{
-    background:#cf6c2d;
+.summary {
+  background: var(--cream);
+  border-radius: 18px;
+  padding: 22px;
+  margin-top: 20px;
 }
 
-.booked-dot{
-    background:#999;
+form {
+  display: flex;
+  flex-direction: column;
 }
 
-form{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
+@media(max-width:900px) {
+  .booking-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-top {
+    flex-direction: column;
+  }
+
+  .calendar-top button {
+    width: 100%;
+  }
+
+  .calendar-grid {
+    gap: 4px;
+  }
+
+  .calendar-day,
+  .empty-day {
+    min-height: 38px;
+    font-size: 12px;
+    border-radius: 7px;
+  }
+
+  .day-name {
+    font-size: 11px;
+  }
 }
-
-input,
-select,
-textarea{
-    padding:15px;
-    border-radius:10px;
-    border:1px solid #ddd;
-    font-size:16px;
-}
-
-button{
-    padding:16px;
-    border:none;
-    background:#cf6c2d;
-    color:white;
-    border-radius:50px;
-    font-size:18px;
-    cursor:pointer;
-}
-
-button:hover{
-    opacity:.9;
-}
-
-@media(max-width:900px){
-
-.booking-grid{
-    grid-template-columns:1fr;
-}
-
-.booking-hero h1{
-    font-size:2.5rem;
-}
-
-}
-
 </style>
 
 </head>
+
 <body>
 
 <header>
-    <div class="logo">
-        <a href="index.html">BEDBUG</a>
-    </div>
+  <a class="logo" href="index.html">
+    <img src="959421AA-AA5B-49F4-86D9-44BDBCBD879C.png" alt="BEDBUG Logo">
+  </a>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="journal.html">Journal</a>
-        <a href="booking.html">Book</a>
-    </nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="journal.html">Journal</a>
+    <a href="booking.html" class="book-btn">Book</a>
+  </nav>
 </header>
 
 <section class="booking-hero">
-
-    <h1>Book Your Adventure</h1>
-
-    <p>
-        Escape the everyday and explore Australia in BEDBUG.
-    </p>
-
+  <h1>Book BEDBUG</h1>
+  <p>Choose your dates and start planning your retro camper adventure.</p>
 </section>
 
 <section class="booking-wrapper">
 
-<div class="booking-grid">
+  <div class="booking-grid">
 
-<div class="booking-card">
+    <div class="booking-card">
+      <h2>Hire Rates</h2>
 
-<h2>Hire Rates</h2>
+      <div class="price-box">
+        <h3>Monday – Thursday</h3>
+        <p><strong>$550 per night</strong></p>
+      </div>
 
-<div class="price-box">
-    <h3>Monday – Thursday</h3>
-    <p>$550 per night</p>
-</div>
+      <div class="price-box">
+        <h3>Friday – Sunday</h3>
+        <p><strong>$795 per night</strong></p>
+      </div>
 
-<div class="price-box">
-    <h3>Friday – Sunday</h3>
-    <p>$795 per night</p>
-</div>
+      <div class="price-box">
+        <h3>Collection & Return</h3>
+        <p>Pickup: 1:00pm</p>
+        <p>Return: 10:30am</p>
+      </div>
+    </div>
 
-<div class="price-box">
-    <h3>Collection & Return</h3>
-    <p>
-    Pickup: 1:00pm<br>
-    Return: 10:30am
-    </p>
-</div>
+    <div class="booking-card">
+      <h2>Availability Calendar</h2>
 
-</div>
+      <p>
+        Select your pickup date first, then your return date.
+      </p>
 
-<div class="booking-card">
+      <div class="calendar-top">
+        <button type="button" onclick="changeMonth(-1)">← Previous</button>
+        <h3 id="calendarTitle"></h3>
+        <button type="button" onclick="changeMonth(1)">Next →</button>
+      </div>
 
-<h2>Availability Calendar</h2>
+      <div class="calendar-grid" id="calendar"></div>
 
-<h3>June 2026</h3>
+      <div class="summary">
+        <h3>Your Trip</h3>
+        <p><strong>Pickup:</strong> <span id="pickupDisplay">Not selected</span></p>
+        <p><strong>Return:</strong> <span id="returnDisplay">Not selected</span></p>
+        <p><strong>Total Nights:</strong> <span id="nightsDisplay">0</span></p>
+        <p><strong>Estimated Total:</strong> <span id="totalDisplay">$0</span></p>
+      </div>
+    </div>
 
-<div class="calendar-grid">
+  </div>
 
-<div class="day-name">Mon</div>
-<div class="day-name">Tue</div>
-<div class="day-name">Wed</div>
-<div class="day-name">Thu</div>
-<div class="day-name">Fri</div>
-<div class="day-name">Sat</div>
-<div class="day-name">Sun</div>
+  <div class="booking-card" style="margin-top:40px;">
+    <h2>Booking Request</h2>
 
-<div class="day available">1</div>
-<div class="day available">2</div>
-<div class="day available">3</div>
-<div class="day available">4</div>
-<div class="day available">5</div>
-<div class="day available">6</div>
-<div class="day available">7</div>
+    <form action="payment.html">
 
-<div class="day available">8</div>
-<div class="day available">9</div>
-<div class="day available">10</div>
-<div class="day available">11</div>
-<div class="day available">12</div>
-<div class="day booked">13</div>
-<div class="day booked">14</div>
+      <input type="hidden" id="pickupInput" name="pickup">
+      <input type="hidden" id="returnInput" name="return">
+      <input type="hidden" id="totalInput" name="total">
 
-<div class="day available">15</div>
-<div class="day available">16</div>
-<div class="day available">17</div>
-<div class="day available">18</div>
-<div class="day available">19</div>
-<div class="day available">20</div>
-<div class="day available">21</div>
+      <label>Full Name</label>
+      <input type="text" placeholder="Your full name" required>
 
-</div>
+      <label>Email</label>
+      <input type="email" placeholder="Your email address" required>
 
-<div class="legend">
+      <label>Phone</label>
+      <input type="tel" placeholder="Your phone number" required>
 
-<span>
-<div class="dot available-dot"></div>
-Available
-</span>
+      <label>Destination / Trip Plans</label>
+      <textarea rows="5" placeholder="Tell us where you want to take BEDBUG"></textarea>
 
-<span>
-<div class="dot booked-dot"></div>
-Booked
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-<div style="margin-top:50px;" class="booking-card">
-
-<h2>Booking Request</h2>
-
-<form>
-
-<input type="text" placeholder="Full Name">
-
-<input type="email" placeholder="Email Address">
-
-<input type="tel" placeholder="Phone Number">
-
-<label>Pickup Date</label>
-<input type="date">
-
-<label>Return Date</label>
-<input type="date">
-
-<textarea rows="5" placeholder="Tell us about your adventure plans"></textarea>
-
-<button type="submit">
-Send Booking Request
-</button>
-
-</form>
-
-</div>
+      <button type="submit">Continue To Payment</button>
+    </form>
+  </div>
 
 </section>
+
+<footer>
+  <p>BEDBUG • Retro Camper Adventures • Sunshine Coast, Queensland</p>
+</footer>
+
+<script>
+const bookedDates = [
+  "2026-06-13",
+  "2026-06-14"
+];
+
+let currentDate = new Date();
+let pickupDate = null;
+let returnDate = null;
+
+const calendar = document.getElementById("calendar");
+const calendarTitle = document.getElementById("calendarTitle");
+
+function formatDate(date) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+function renderCalendar() {
+  calendar.innerHTML = "";
+
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
+
+  const monthName = currentDate.toLocaleString("en-AU", {
+    month: "long",
+    year: "numeric"
+  });
+
+  calendarTitle.textContent = monthName;
+
+  const dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  dayNames.forEach(day => {
+    const dayName = document.createElement("div");
+    dayName.className = "day-name";
+    dayName.textContent = day;
+    calendar.appendChild(dayName);
+  });
+
+  const firstDay = new Date(year, month, 1);
+  const lastDate = new Date(year, month + 1, 0).getDate();
+
+  let startOffset = firstDay.getDay();
+  startOffset = startOffset === 0 ? 6 : startOffset - 1;
+
+  for (let i = 0; i < startOffset; i++) {
+    const empty = document.createElement("div");
+    empty.className = "empty-day";
+    calendar.appendChild(empty);
+  }
+
+  for (let day = 1; day <= lastDate; day++) {
+    const date = new Date(year, month, day);
+    const dateString = formatDate(date);
+
+    const dayEl = document.createElement("div");
+    dayEl.className = "calendar-day";
+    dayEl.textContent = day;
+
+    if (bookedDates.includes(dateString)) {
+      dayEl.classList.add("booked");
+    } else {
+      dayEl.addEventListener("click", () => selectDate(date));
+    }
+
+    if (pickupDate && formatDate(date) === formatDate(pickupDate)) {
+      dayEl.classList.add("selected");
+    }
+
+    if (returnDate && formatDate(date) === formatDate(returnDate)) {
+      dayEl.classList.add("selected");
+    }
+
+    if (pickupDate && returnDate && date > pickupDate && date < returnDate) {
+      dayEl.classList.add("in-range");
+    }
+
+    calendar.appendChild(dayEl);
+  }
+}
+
+function selectDate(date) {
+  if (!pickupDate || returnDate) {
+    pickupDate = date;
+    returnDate = null;
+  } else if (date > pickupDate) {
+    returnDate = date;
+  } else {
+    pickupDate = date;
+    returnDate = null;
+  }
+
+  updateSummary();
+  renderCalendar();
+}
+
+function updateSummary() {
+  document.getElementById("pickupDisplay").textContent = pickupDate
+    ? pickupDate.toLocaleDateString("en-AU")
+    : "Not selected";
+
+  document.getElementById("returnDisplay").textContent = returnDate
+    ? returnDate.toLocaleDateString("en-AU")
+    : "Not selected";
+
+  document.getElementById("pickupInput").value = pickupDate ? formatDate(pickupDate) : "";
+  document.getElementById("returnInput").value = returnDate ? formatDate(returnDate) : "";
+
+  if (!pickupDate || !returnDate) {
+    document.getElementById("nightsDisplay").textContent = "0";
+    document.getElementById("totalDisplay").textContent = "$0";
+    document.getElementById("totalInput").value = "";
+    return;
+  }
+
+  let nights = 0;
+  let total = 0;
+  let date = new Date(pickupDate);
+
+  while (date < returnDate) {
+    const day = date.getDay();
+
+    if (day >= 1 && day <= 4) {
+      total += 550;
+    } else {
+      total += 795;
+    }
+
+    nights++;
+    date.setDate(date.getDate() + 1);
+  }
+
+  document.getElementById("nightsDisplay").textContent = nights;
+  document.getElementById("totalDisplay").textContent = "$" + total.toLocaleString();
+  document.getElementById("totalInput").value = total;
+}
+
+function changeMonth(direction) {
+  currentDate.setMonth(currentDate.getMonth() + direction);
+  renderCalendar();
+}
+
+renderCalendar();
+</script>
 
 </body>
 </html>
