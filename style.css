@@ -357,3 +357,51 @@ footer {
     min-height: 38px;
   }
 }
+
+.calendar {
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+.calendar-day-name {
+  text-align: center;
+  font-weight: 900;
+  color: var(--orange);
+  font-size: 14px;
+}
+
+.calendar-day {
+  width: 100% !important;
+  min-height: 52px !important;
+  padding: 0 !important;
+  border-radius: 12px !important;
+  font-size: 16px !important;
+  margin: 0 !important;
+}
+
+.calendar-empty {
+  min-height: 52px !important;
+}
+
+@media (max-width: 600px) {
+  .calendar {
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+  }
+
+  .calendar-day-name {
+    font-size: 10px !important;
+  }
+
+  .calendar-day {
+    min-height: 36px !important;
+    font-size: 12px !important;
+    border-radius: 7px !important;
+    padding: 0 !important;
+  }
+
+  .calendar-empty {
+    min-height: 36px !important;
+  }
+}
