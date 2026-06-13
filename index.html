@@ -1,205 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BEDBUG | Weekend Getaways</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff8ec;
-      color: #173b3f;
-    }
-
-    header {
-      background: #7ed6d1;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 5px solid #f4c46b;
-    }
-
-    .logo {
-      font-size: 34px;
-      font-weight: 900;
-      letter-spacing: 5px;
-      color: #173b3f;
-    }
-
-    nav a {
-      color: #173b3f;
-      text-decoration: none;
-      margin-left: 22px;
-      font-weight: bold;
-    }
-
-    .hero {
-      min-height: 90vh;
-      background:
-        linear-gradient(rgba(126,214,209,0.25), rgba(255,248,236,0.85)),
-        url("IMG_5694.png");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: end;
-      padding: 80px 7%;
-    }
-
-    .hero-box {
-      background: rgba(255,248,236,0.92);
-      padding: 35px;
-      border-radius: 28px;
-      max-width: 720px;
-      border: 4px solid #f4c46b;
-    }
-
-    h1 {
-      font-size: clamp(55px, 12vw, 130px);
-      margin: 0;
-      color: #00a6a6;
-      letter-spacing: 6px;
-    }
-
-    h2 {
-      font-size: 42px;
-      color: #00a6a6;
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 15px 28px;
-      background: #f4c46b;
-      color: #173b3f;
-      text-decoration: none;
-      border-radius: 40px;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 75px 7%;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-      border: 3px solid #b9eee9;
-    }
-
-    .card img {
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-    }
-
-    .card div {
-      padding: 24px;
-    }
-
-    .banner {
-      background: #173b3f;
-      color: white;
-      text-align: center;
-    }
-
-    .banner h2 {
-      color: #f4c46b;
-    }
-
-    footer {
-      background: #7ed6d1;
-      text-align: center;
-      padding: 30px;
-      font-weight: bold;
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
-  <div class="logo">BEDBUG</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About BEDBUG</a>
-  </nav>
-</header>
-
-<section class="hero">
+<section class="hero" style="background:url('IMG_5713.png') center/cover;">
   <div class="hero-box">
     <h1>BEDBUG</h1>
+
     <p>
-      Your weekend getaway starts the moment you turn the key.
-      BEDBUG is built for easy escapes, beach mornings, hinterland coffee stops,
-      sunset camp setups and simple adventures without the stress.
+      A retro VW Beetle camper built for unforgettable weekends,
+      beach escapes, coffee runs and coastal adventures.
     </p>
-    <a href="about.html" class="btn">Meet BEDBUG</a>
+
+    <a href="booking.html" class="btn">Book Your Adventure</a>
   </div>
 </section>
 
 <section>
-  <h2>BEDBUG in Destinations</h2>
-  <p>
-    From Noosa beach days to Byron Bay sunsets and quiet hinterland mornings,
-    BEDBUG makes a weekend away feel effortless. Pack light, hit the road,
-    pull up somewhere beautiful and enjoy the simple life.
-  </p>
 
-  <div class="cards">
-    <div class="card">
-      <img src="AEF704A1-A130-48B8-AB32-E24CD3318C02.jpeg" alt="BEDBUG in Noosa">
-      <div>
-        <h3>Noosa</h3>
-        <p>Coffee, beach and good vibes by the coast.</p>
-      </div>
-    </div>
+<h2>Choose Your Escape</h2>
 
-    <div class="card">
-      <img src="IMG_5665.png" alt="BEDBUG in Byron Bay">
-      <div>
-        <h3>Byron Bay</h3>
-        <p>Sunsets, good food and a perfect camp setup.</p>
-      </div>
-    </div>
+<div class="grid">
 
-    <div class="card">
-      <img src="IMG_5697.png" alt="BEDBUG hinterland getaway">
-      <div>
-        <h3>Hinterland</h3>
-        <p>Open the rear kitchen, make a coffee and enjoy the view.</p>
-      </div>
-    </div>
-  </div>
+<div class="card">
+<img src="AEF704A1-A130-48B8-AB32-E24CD3318C02.jpeg">
+<h3>Noosa</h3>
+<p>
+Coffee. Beaches. Sunshine.
+The perfect weekend getaway.
+</p>
+</div>
+
+<div class="card">
+<img src="IMG_5665.png">
+<h3>Byron Bay</h3>
+<p>
+Sunset picnics and coastal adventures.
+</p>
+</div>
+
+<div class="card">
+<img src="3D540024-8AC2-45C0-9417-F291C8CECC6F.png">
+<h3>Great Ocean Road</h3>
+<p>
+Take the scenic route and make memories.
+</p>
+</div>
+
+</div>
+
 </section>
 
-<section class="banner">
-  <h2>Easy Weekend Getaways</h2>
-  <p>
-    BEDBUG is small, simple and ready to go. Throw in your clothes,
-    pack the fridge, choose a destination and head off for the weekend.
-  </p>
-  <a href="about.html" class="btn">See the Build</a>
+<section>
+
+<h2>Weekend Adventure Stories</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="IMG_5712.png">
+<h3>Beach Vibes</h3>
+<p>
+Pack your bags, grab your favourite people and hit the coast.
+</p>
+</div>
+
+<div class="card">
+<img src="IMG_5714.png">
+<h3>Rainforest Retreats</h3>
+<p>
+Campfires, marshmallows and peaceful nights beneath the trees.
+</p>
+</div>
+
+<div class="card">
+<img src="IMG_5697.png">
+<h3>Morning Coffee</h3>
+<p>
+Enjoy sunrise coffee from the fully equipped rear kitchen.
+</p>
+</div>
+
+</div>
+
 </section>
 
-<footer>
-  © 2026 BEDBUG VW Beetle Camper
-</footer>
+<section>
 
-</body>
-</html>
+<div class="box">
+
+<h2>Why BEDBUG?</h2>
+
+<p>
+BEDBUG combines classic VW charm with modern comfort.
+Designed for couples looking for a unique getaway experience,
+it's equipped with a spacious double bed, reading lights,
+65L fridge, microwave, coffee machine, sink, running water,
+plenty of storage and a fully featured rear kitchen.
+</p>
+
+<a href="about.html" class="btn">
+Explore The Build
+</a>
+
+</div>
+
+</section>
