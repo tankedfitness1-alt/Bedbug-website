@@ -321,3 +321,39 @@ footer {
     margin-top: 12px;
   }
 }
+
+@media (max-width: 600px) {
+  .calendar-controls {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .calendar-controls button {
+    width: 100%;
+    padding: 14px;
+  }
+
+  .calendar {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+
+  .calendar-day-name {
+    font-size: 11px;
+    padding: 4px 0;
+  }
+
+  .calendar-day {
+    min-height: 38px;
+    padding: 0;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .calendar-empty {
+    min-height: 38px;
+  }
+}
