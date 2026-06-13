@@ -10,49 +10,86 @@
 <body>
 
 <header>
-  <div class="logo">BEDBUG</div>
+  <a class="logo" href="index.html">
+    <img src="959421AA-AA5B-49F4-86D9-44BDBCBD879C.png" alt="BEDBUG Logo">
+  </a>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="booking.html">Book</a>
-    <a href="payment.html">Payment</a>
+    <a href="journal.html">Journal</a>
+    <a href="booking.html" class="book-btn">Book</a>
   </nav>
 </header>
 
-<section>
-  <h1>Payment</h1>
-
-  <div class="box">
-    <h2>Booking Summary</h2>
-    <p><strong>Monday – Thursday:</strong> $550 per night</p>
-    <p><strong>Friday – Sunday:</strong> $795 per night</p>
-    <p><strong>Pick Up:</strong> 1:00pm</p>
-    <p><strong>Return:</strong> 10:30am</p>
+<section class="hero" style="background-image:url('IMG_5712.png'); min-height:65vh;">
+  <div class="hero-content">
+    <h1>Payment</h1>
+    <p>Secure your BEDBUG adventure and get ready for the road.</p>
   </div>
+</section>
 
+<section>
+  <div class="grid">
+    <div class="box">
+      <h2>Booking Summary</h2>
+      <p><strong>Monday – Thursday:</strong> $550/night</p>
+      <p><strong>Friday – Sunday:</strong> $795/night</p>
+      <p><strong>Pick-up:</strong> 1:00pm</p>
+      <p><strong>Return:</strong> 10:30am</p>
+    </div>
+
+    <div class="box">
+      <h2>Payment Options</h2>
+      <p><strong>Option 1:</strong> 50% booking deposit</p>
+      <p><strong>Option 2:</strong> Full payment upfront</p>
+      <p>
+        This page is currently set up as a no-cost manual payment page.
+        Replace the details below with your preferred bank transfer details.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
   <div class="box">
-    <h2>Secure Payment</h2>
+    <h2>Bank Transfer Details</h2>
+
+    <p><strong>Account Name:</strong> BEDBUG Adventures</p>
+    <p><strong>BSB:</strong> 000-000</p>
+    <p><strong>Account Number:</strong> 00000000</p>
+    <p><strong>Reference:</strong> Your full name + booking date</p>
 
     <p>
-      This is a payment placeholder page. For real payments, connect this button
-      to Stripe, Square, PayPal or a bank transfer payment link.
+      Once payment has been made, please send through a screenshot of your payment
+      confirmation so your booking can be secured.
     </p>
 
-    <label>Full Name</label>
-    <input type="text" placeholder="Customer name">
+    <a class="btn" href="mailto:hello@bedbugadventures.com.au?subject=BEDBUG Payment Confirmation">
+      Email Payment Confirmation
+    </a>
+  </div>
+</section>
 
-    <label>Email</label>
-    <input type="email" placeholder="Customer email">
+<section class="dark-section">
+  <div class="split">
+    <div>
+      <h2>Important Booking Notes</h2>
 
-    <label>Booking Reference</label>
-    <input type="text" placeholder="Optional booking reference">
+      <ul>
+        <li>Bookings are not confirmed until payment has been received.</li>
+        <li>Pick-up is from 1:00pm on your booking day.</li>
+        <li>Return is by 10:30am on your return day.</li>
+        <li>Final hire approval is subject to booking confirmation.</li>
+      </ul>
+    </div>
 
-    <a href="#" class="btn">Pay Booking Deposit</a>
+    <img class="feature-img" src="IMG_5697.png" alt="BEDBUG rear kitchen">
   </div>
 </section>
 
 <footer>
-  BEDBUG Adventures
+  <p>BEDBUG • Payment & Booking Confirmation</p>
 </footer>
 
 </body>
