@@ -285,6 +285,14 @@ footer {
   background: linear-gradient(transparent, rgba(7,63,61,0.9));
 }
 
+.box {
+    transition: transform 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-8px);
+}
+
 @media (max-width: 850px) {
   header {
     flex-direction: column;
