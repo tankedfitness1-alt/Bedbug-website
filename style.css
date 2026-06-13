@@ -179,13 +179,24 @@ button {
 }
 
 .dark-section {
-  background: var(--teal);
-  color: var(--cream);
+    background: var(--teal);
+    color: var(--cream);
 }
 
 .dark-section h2,
 .dark-section h3 {
-  color: var(--sand);
+    color: var(--sand);
+}
+
+.dark-section .box,
+.dark-section .card {
+    background: var(--white);
+    color: var(--teal);
+}
+
+.dark-section .box h3,
+.dark-section .card h3 {
+    color: var(--orange);
 }
 
 .feature-list {
